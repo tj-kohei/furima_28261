@@ -7,6 +7,9 @@ describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
+    it "全てのデータがあれば保存できること"do
+      expect(@user).to be_valid
+    end
     it "nicknameが空だと登録できないこと" do
       @user.nickname = nil
       @user.valid?
@@ -18,24 +21,22 @@ describe User, type: :model do
       expect(@user.errors.full_messages).to include("Email can't be blank")
     end
     it "重複したemailが存在する場合登録できないこと" do
-      @user.save
+      # @user.save
+      FactoryBot.create(:user, email: @user.email)
       another_user = FactoryBot.build(:user, email: @user.email)
       another_user.valid?
+      binding.pry
+     expect(another_user.errors.full_messages).to include("Email has already been taken")
     end
     it "emailには@を含まないと登録できないこと" do
       @user.email = "aaa@yahoo"
       @user.valid?
-      expect(@user.errors.full_messages).to include("")
+      expect(@user.errors.full_messages).to include("Email is invalid")
     end
     it "passwordが空では登録できないこと" do
       @user.password = nil
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
-    end
-    it "passwordが6文字以上であれば登録できること" do
-      @user.password = "123456"
-      @user.password_confirmation = "123456"
-      expect(@user).to be_valid
     end
     it "passwordが5文字以下であれば登録できないこと" do
       @user.password = "12345"
@@ -46,7 +47,7 @@ describe User, type: :model do
     it "passwordは半角英数字混合であること" do
       @user.password = "123abc"
       @user.password_confirmation = "123abc"
-      expect(@user.errors.full_messages).to include("")
+      expect(@user).to be_valid
     end
     it "passwordが存在してもpassword_confirmationが空では登録できないこと" do
       @user.password_confirmation = ""
