@@ -66,7 +66,7 @@ app/assets/stylesheets/items/new.css %>
     <div class="items-detail">
       <div class="weight-bold-text question-text">
         <span>配送について</span>
-        <a class="question" href="#">?</a>
+        <%=link_to "question","#"%>
       </div>
       <div class="form">
         <div class="weight-bold-text">
@@ -128,12 +128,12 @@ app/assets/stylesheets/items/new.css %>
       </p>
       <p class="sentence">
         またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
+        <%=link_to "偽ブランドの販売","#" %>
         は犯罪であり処罰される可能性があります。
       </p>
       <p class="sentence">
         また、出品をもちまして
-        <a href="#">加盟店規約</a>
+        <%=link_to "加盟店規約","#" %>
         に同意したことになります。
       </p>
     </div>
@@ -149,9 +149,9 @@ app/assets/stylesheets/items/new.css %>
 
   <footer class="items-sell-footer">
     <ul class="menu">
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
-      <li><a href="#">特定商取引に関する表記</a></li>
+      <li><%=link_to "プライバシーポリシー","#"%></li>
+      <li><%=link_to "フリマ利用規約","#"%></li>
+      <li><%=link_to "特定商取引に関する表記","#"%></li>
     </ul>
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
     <p class="inc">
