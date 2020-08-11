@@ -22,6 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
 ## users テーブル
 | Column                | Type    | Options     |
 | --------------------- | ------- | ----------- |
@@ -61,7 +63,7 @@ has_one    :purchase
 | address_line     | string     | default: “”, null: false       |
 | building_unit    | string     |                                |
 | phone_number     | string     |default: “”, null: false        |
-<<<<<<< Updated upstream
+
 has_one :purchase
 ## purchases テーブル
 | Column           | Type       | Options                        |
