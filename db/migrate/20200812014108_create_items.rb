@@ -10,7 +10,8 @@ t.integer :shipping_fee_id,      null: false
 t.integer :from_location_id,       null: false                    
 t.integer :days_till_ship_id,            null: false                    
 t.integer :price,                    null: false                    
-      t.timestamps
+t.timestamps
+
     end
   end
 end
