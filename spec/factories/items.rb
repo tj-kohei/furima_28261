@@ -1,4 +1,5 @@
 FactoryBot.define do
+  
   factory :item do
   item_name {"あいう"}
   item_detail {"あいう"}
@@ -11,3 +12,4 @@ FactoryBot.define do
   association :user
   end
 end
+

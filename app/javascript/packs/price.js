@@ -22,16 +22,3 @@ window.addEventListener('load', function(){
     console.log(profit.append(userProfit));
   })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
