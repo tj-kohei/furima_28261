@@ -9,7 +9,11 @@ describe Item, type: :model do
     it "全てのデータがあれば保存できること"do
       expect(@item).to be_valid
     end
-  
+    it "写真がないと出品できなこと"do
+      @item.image = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Image can't be blank")
+   end
     it "商品名がないと出品できないこと"do
       @item.item_name = nil
       @item.valid?
