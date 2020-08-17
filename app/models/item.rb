@@ -8,18 +8,16 @@ class Item < ApplicationRecord
 
 
   with_options presence: true do
-  validates :item_name, presence: true
-  validates :item_detail, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1 }
-  validates :status_id, presence: true, numericality: { other_than: 1 }
-  validates :shipping_fee_id, presence: true, numericality: { other_than: 1 }
-  validates :from_location_id, presence: true, numericality: { other_than: 1 }
-  validates :days_till_ship_id, presence: true ,numericality: { other_than: 1 }
-  validates :price, inclusion: { in: (300..9999999)}
-  
+    validates :image, presence: true
+    validates :item_name, presence: true
+    validates :item_detail, presence: true
+    validates :category_id, presence: true, numericality: { other_than: 1 }
+    validates :status_id, presence: true, numericality: { other_than: 1 }
+    validates :shipping_fee_id, presence: true, numericality: { other_than: 1 }
+    validates :from_location_id, presence: true, numericality: { other_than: 1 }
+    validates :days_till_ship_id, presence: true ,numericality: { other_than: 1 }
+    validates :price, inclusion: { in: (300..9999999)}
   end
-  
-  
   
   belongs_to :user
   has_one    :purchase
