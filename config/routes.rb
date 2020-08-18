@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     #get "sign_out", :to => "users/sessions#destory"
   #end
    
-  resources :items, only: [:index, :new, :create] do 
+  resources :items, only: [:index, :new, :create, :show] do 
   end
   root to: 'items#index'
 

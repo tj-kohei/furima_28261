@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.order("created_at DESC")
   end
   
   def new
@@ -22,6 +23,9 @@ class ItemsController < ApplicationController
       @from_location = FromLocation.all
       @days_till_ship = DaysTillShip.all
       render :new
+    end
+    def show
+      @item = Item.find(params[:id])
     end
   end
 
