@@ -62,6 +62,8 @@ has_one    :purchase
 | address_line     | string     | default: “”, null: false       |
 | building_unit    | string     |                                |
 | phone_number     | string     |default: “”, null: false        |
+|user|references| null: false, foreign_key: true
+|item|references| null: false, foreign_key: true
 
 has_one :purchase
 ## purchases テーブル
