@@ -53,17 +53,17 @@ has_many :purchases
 ### Association
 belongs_to :user
 has_one    :purchase
-## addresses テーブル
+## addressesテーブル
+item_order_id	references	null: false, foreign_key: true
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | postal_code      | string     | default: “”, null: false       |
 | prefecture       | integer    | null: false                    |
 | city             | string     | default: “”, null: false       |
-| address_line     | string     | default: “”, null: false       |
-| building_unit    | string     |                                |
+| house_number     | string     | default: “”, null: false       |
+| building_name    | string     |                                |
 | phone_number     | string     |default: “”, null: false        |
-|user|references| null: false, foreign_key: true
-|item|references| null: false, foreign_key: true
+|purchase|references| null: false, foreign_key: true
 
 has_one :purchase
 ## purchases テーブル
