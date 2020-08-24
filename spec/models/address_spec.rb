@@ -55,13 +55,18 @@ RSpec.describe Address, type: :model do
       it "phone_numberにが半角数字でないと登録できない" do
         @address.phone_number = "０９０１２３４５６７８"
         @address.valid?
-        expect(@address.errors.full_messages).to include("Phone number is invalid. Input half-width numbers without hyphen")
+        expect(@address.errors.full_messages).to include("Phone number is invalid. Input half-width numbers contain hyphen")
       end
       it "phone_numberにハイフンが含まれると登録できない" do
         @address.phone_number = "090-1234-5678"
         @address.valid?
-        expect(@address.errors.full_messages).to include("Phone number is invalid. Input half-width numbers without hyphen")
+        expect(@address.errors.full_messages).to include("Phone number is invalid. Input half-width numbers contain hyphen")
       end
+      it "phone_numberが１１文字以内でないと登録できない"do
+      @address.phone_number = "111111111111"
+      @address.valid?
+      expect(@address.errors.full_messages).to include("Phone number is invalid. Input half-width numbers contain hyphen")
+    end
     end
   end
 end

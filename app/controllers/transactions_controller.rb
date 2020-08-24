@@ -7,9 +7,9 @@ class TransactionsController < ApplicationController
   end
 
   def create
+    payjp_charge
     @purchase = Purchase.create(item_id: @item.id, user_id: current_user.id)
     if @purchase.valid? && Address.create(address_params).valid?
-      payjp_charge
       redirect_to root_path
     else
       @purchase.destroy
@@ -32,7 +32,7 @@ class TransactionsController < ApplicationController
   end
 
   def payjp_charge
-    Payjp.api_key = sk_test_ae66ac6e2e084b033e75b25a
+    Payjp.api_key = "sk_test_ae66ac6e2e084b033e75b25a"
     Payjp::Charge.create(
       amount: @item.price,
       card: params[:card_token],
