@@ -9,8 +9,10 @@ class TransactionsController < ApplicationController
   def create
     @purchase = Purchase.new(item_id: @item.id, user_id: current_user.id)
     if @purchase.valid? 
-      payjp_charge
       @purchase.save
+      @address = Address.new(address_params)
+      @address.save!
+      payjp_charge
       redirect_to root_path
     else
       @purchase.destroy
