@@ -29,6 +29,6 @@ const card = () => {
       } 
     });
   });
-}
+};
 
 window.addEventListener("load", card)
